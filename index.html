@@ -1,0 +1,100 @@
+---
+layout: default
+title: Nobita个人博客
+author: Nobita
+csss: [common.css, index.css]
+---
+
+<div id="content" class="clearfix">
+
+    {% include blog-list.html %}
+
+    <div class="others">
+        <div id="search-box">
+            <input type="text" placeholder="输入你想搜索的文章">
+            <button type="submit" title="点击搜索">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+        </div>
+
+        <div id="search-result-box">
+            <ul class="search-result"></ul>
+        </div>
+
+        <div class="author-box clearfix">
+            <h4 class="title"><i class="fas fa-user-circle"></i><span>关于我</span></h4>
+            <div class="avatar"><img src="{{ site.base}}/{{ site.avatarurl }}" alt="头像"></div>
+            <div class="name">{{ site.github_username }}</div>
+            <ul class="info">
+                <li><a href="javascript::"><i class="fas fa-info"></i><span>Software Engineer</span></a></li>
+                <li><a href="{{ site.githuburl }}"><i class="fab fa-github-alt"></i><span>Github</span></a></li>
+            </ul>
+        </div>
+
+        <div class="tags-box">
+            <h4 class="title"><i class="fas fa-tags"></i><span>标签</span></h4>
+            <div class="tags-list">
+                {% assign index = 1 %}
+                {% assign first = site.tags.first %}
+                {% assign max = first[1].size %}
+                {% assign min = max %}
+                {% for tag in site.tags offset:1 %}
+                {% if tag[1].size > max %}
+                {% assign max = tag[1].size %}
+                {% elsif tag[1].size < min %}
+                {% assign min = tag[1].size %}
+                {% endif %}
+                {% endfor %}
+
+                {% if max == min %}
+                {% assign diff = 1 %}
+                {% else %}
+                {% assign diff = max | minus: min %}
+                {% endif %}
+
+                {% for tag in site.tags %}
+                {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
+                {% assign base = temp | divided_by: 4 %}
+                {% assign remain = temp | modulo: 4 %}
+                {% if remain == 0 %}
+                {% assign size = base | plus: 9 %}
+                {% elsif remain == 1 or remain == 2 %}
+                {% assign size = base | plus: 9 | append: '.5' %}
+                {% else %}
+                {% assign size = base | plus: 10 %}
+                {% endif %}
+                {% if remain == 0 or remain == 1 %}
+                {% assign color = 9 | minus: base %}
+                {% else %}
+                {% assign color = 8 | minus: base %}
+                {% endif %}
+                <div class="tag">
+                    <a class="type{{ index }}" href="{{ site.base}}/pages/tags.html#{{ tag[0] }}">{{ tag[0] }}</a>
+                </div>
+                {% assign index = index | plus:1 %}
+                {% if index == 6 %}
+                {% assign index = 1%}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="posts-box">
+            <h4 class="title"><i class="fas fa-edit"></i><span>最近发布</span></h4>
+            <ul class="posts-list">
+                {% for post in site.posts %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    {% include pagination.html %}
+
+</div>
+
+<a id="return-top" title="回到顶部" href="#top">
+    <div class="gb_lb"></div>
+</a>
+

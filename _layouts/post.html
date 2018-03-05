@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>{{ page.title }}</title>
+    <link rel="icon" href="{{ site.base }}/favicon.ico?" type="image/x-icon">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.base }}/css/common.css">
+    <link rel="stylesheet" href="{{ site.base }}/css/post.css"/>
+    <link rel="stylesheet" href="{{ site.base }}/css/syntax.css"/>
+    <script type="text/javascript" src="{{ site.base }}/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="{{ site.base }}/js/common.js"></script>
+    <script>
+        var fixTitle = function () {
+            var content_top = $(".article-title").offset().top;
+            var distance_Top = $(document).scrollTop();
+
+            if(content_top < distance_Top) {
+                if($(".nav").css("display") != "none") {
+                    $(".nav").hide();
+                    $(".poster").hide();
+                    $(".fix-title").show();
+                    $("#header").addClass("fixed").hide().slideDown(300);
+                    $("#header .nav-bg").addClass("fixed").hide().slideDown(300);
+                    $("#content").css({marginTop: 50 + parseInt($(".poster").css("height"))})
+                }
+            } else {
+                if($(".nav").css("display") == "none") {
+                    $(".fix-title").hide();
+                    $("#header").removeClass("fixed");
+                    $("#header .nav-bg").removeClass("fixed");
+                    $("#content").css({marginTop: "10px"})
+                    $(".nav").show();
+                    $(".poster").show();
+                }
+            }
+        }
+        $(document).scroll(function() {
+            fixTitle();
+        });
+    </script>
+</head>
+
+<body>
+
+    {% include header.html %}
+    <div id="content">
+        <div class="main-content">
+            <div class="article-nav">
+                <a href="{{ size.base }}/"><span style="font-weight: bold">Home</span></a>
+                <small>></small>
+                <a href="{{ site.base}}/pages/tags.html#{{ page.categories }}"><span>{{ page.categories }}</span></a>
+                <small>></small>
+                <span class="current">{{ page.title }}</span>
+            </div>
+
+            <div class="article-content">
+                <div class="article-title clearfix">
+                    <div class="classify">
+                        {% assign index = 1 %}
+                        {% for tag in page.tags %}
+                        <a class="classify-tag type{{ index }}" href="{{ site.base}}/pages/tags.html#{{ tag }}">{{ tag }}</a>
+                        {% assign index = index | plus:1 %}
+                        {% endfor %}
+                    </div>
+                    <h1>{{ page.title }}</h1>
+                    <div class="article-info">
+                        <ul class="info-tags clearfix">
+                            <li class="tag-item"><a href="{{ site.githuburl }}"><i class="fas fa-user-circle"></i><span>{{ page.author }}</span></a></li>
+                            <li class="tag-item"><a href="javascript::"><i class="fas fa-eye"></i><span>100</span></a></li>
+                            <li class="tag-item"><a href="javascript::"><i class="far fa-calendar-alt"></i><span>{{ page.date | date: "%F"}}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content markdown-body">
+                    {{ content }}
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="comment">
+            {% include comments.html %}
+        </div>
+
+    </div>
+
+    <a id="return-top" title="回到顶部" href="#top">
+        <div class="gb_lb"></div>
+    </a>
+
+    {% include footer.html %}
+
+</body>
+</html>

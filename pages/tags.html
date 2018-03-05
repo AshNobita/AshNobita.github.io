@@ -1,0 +1,51 @@
+---
+layout: default
+title: 全部标签-Nobita个人博客
+author: Nobita
+csss: [common.css, tags.css]
+---
+
+<div id="content" class="clearfix">
+    <div class="tags">
+        <div class="tags-title"><h1>Tags</h1></div>
+        <ul class="tags-list">
+            {% capture tags %}
+                {% for tag in site.tags %}
+                    {{ tag[0] }}
+                {% endfor %}
+            {% endcapture %}
+            {% assign sortedtags = tags | split:' ' | sort %}
+
+            {% for tag in sortedtags %}
+            <li class="tags-list-item clearfix">
+                <div class="tags-item-title"><h2 id="{{ tag }}">{{ tag }}</h2></div>
+                <ul class="tag-list clearfix">
+                    {% for post in site.tags[tag] %}
+                    <li class="tag-list-item clearfix">
+                        <time style="color: #888888; margin-right: 5px;">{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.</time>
+                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;
+                        {% assign index = 1 %}
+                        {% for taglabel in post.tags %}
+                        <span class="tag-label type{{ index }}"><a href="{{ site.base }}/pages/tags.html#{{ taglabel }}">{{ taglabel }}</a></span>
+                        {% assign index = index | plus:1 %}
+                        {% endfor %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="categories">
+        <div class="categories-title"><h1>Categories</h1></div>
+        <ul class="categories-list">
+            {% for tag in sortedtags %}
+            <li class="categories-list-item"><a href="#{{ tag }}">{{ tag }} ({{ site.tags[tag].size }})</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<a id="return-top" title="回到顶部" href="#top">
+    <div class="gb_lb"></div>
+</a>

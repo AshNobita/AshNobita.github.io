@@ -1,0 +1,15 @@
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '{{ page.date }}',
+        owner: 'AshNobita',
+        repo: 'ashnobita.github.io',
+        oauth: {
+            client_id: '4052c7315c9e10c1c927',
+            client_secret: 'd3f8bb74f3cd1f583b5dd03d403ad294d6bcff12',
+        },
+    })
+    gitment.render('container')
+</script>

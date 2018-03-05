@@ -1,0 +1,42 @@
+{% if paginator.total_pages > 1 %}
+<div id="pagination">
+    <div class="pagination-box clearfix">
+        <ul class="page-numbers">
+            {% assign startpage = paginator.page | minus:2  %}
+            {% assign endpage = paginator.page | plus:2  %}
+            {% if startpage < 1 %}
+            {% assign startpage = 1 %}
+            {% endif %}
+            {% if endpage > paginator.total_pages %}
+            {% assign endpage = paginator.total_pages %}
+            {% endif %}
+            {% assign gap = endpage | minus:startpage %}
+            {% if gap < 4 %}
+            {% assign startpage = startpage | plus:gap | minus:4 %}
+            {% assign endpage = endpage | minus:gap | plus:4 %}
+            {% endif %}
+            {% if startpage < 1 %}
+            {% assign startpage = 1 %}
+            {% endif %}
+            {% if endpage > paginator.total_pages %}
+            {% assign endpage = paginator.total_pages %}
+            {% endif %}
+            {% if paginator.previous_page %}
+            <li><a class="page-numbers previous" href="{{ paginator.previous_page_path }}">&laquo;</a></li>
+            {% endif %}
+            {% for i in (startpage..endpage) %}
+            {% if i == paginator.page %}
+            <li><span class="page-numbers current">{{ i }}</span></li>
+            {% elsif i == 1 %}
+            <li><a class="page-numbers" href="{{ site.url }}">{{ i }}</a></li>
+            {% else %}
+            <li><a class="page-numbers" href="{{ site.url }}/page{{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if paginator.next_page %}
+            <li><a class="next page-numbers" href="{{ paginator.next_page_path }}">»</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endif %}

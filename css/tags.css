@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+
+#content {
+    margin: 10px auto 20px auto;
+}
+
+#content .tags {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    box-shadow: 0 0 5px #888888;
+}
+
+#content .tags-title {
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#content .tags-list {
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+#content .tags-list-item {
+    padding-bottom: 5px;
+}
+
+#content .tags-item-title {
+    padding-bottom: 5px;
+    margin-top: 50px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#content .tags-item-title h2 {
+    font-weight: normal;
+}
+
+#content .tag-list-item {
+    list-style: disc;
+    margin-bottom: 10px;
+    height: 26px;
+    line-height: 26px;
+}
+
+#content .tag-list-item > a {
+    font-weight: bold;
+}
+
+#content .tag-list-item > time, #content .tag-list-item > a, #content .tag-list-item > span {
+    margin-right: 5px;
+    float: left;
+}
+
+#content .tag-label {
+    margin: 0;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    height: 20px;
+    line-height: 20px;
+}
+
+#content .tag-label.type1 {
+    background: #CD5D44;
+}
+
+#content .tag-label.type1:hover {
+    background: #cd3333;
+}
+
+#content .tag-label.type2 {
+    background: #666;
+}
+
+#content .tag-label.type2:hover {
+    background: #222;
+}
+
+#content .tag-label.type3 {
+    background: #ff7f24;
+}
+
+#content .tag-label.type3:hover {
+    background: #FF6D1A;
+}
+
+#content .tag-label.type4 {
+    background: #63b8ff;
+}
+
+#content .tag-label.type4:hover {
+    background: #4096ff;
+}
+
+#content .tag-label.type5 {
+    background: #99547e;
+}
+
+#content .tag-label.type5:hover {
+    background: #824599;
+}
+
+#content .categories {
+    width: 300px;
+    float: right;
+    box-sizing: border-box;
+    padding: 10px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    box-shadow: 0 0 5px #888888;
+}
+
+#content .categories-title {
+    padding: 5px 10px 10px 10px;
+    border-bottom: 1px solid #C0C0C0;
+}
+
+#content .categories-title > h1 {
+    font-size: 16px;
+}
+
+#content .categories-list {
+    font-size: 16px;
+    position: relative;
+    padding: 10px 10px 10px 35px;
+    overflow-y: auto;
+}
+
+#content .categories-list-item {
+    list-style: disc;
+    padding: 5px 0;
+}
+
+.categories-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.categories-list::-webkit-scrollbar-thumb {
+    background-color: #D3D3D3;
+}

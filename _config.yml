@@ -1,0 +1,13 @@
+title: Nobita个人博客
+description: “Nobita的个人博客”
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://ashnobit.github.io"
+blog_name: Nobita个人博客
+github_sername:  AshNobita
+githuburl: "https://github.com/AshNobita"
+avatarurl: "images/73b390e7e1979ad3fd3367278a5c4c17.jpeg"
+
+markdown: kramdown
+
+plugins: [jekyll-paginate]
+paginate: 6

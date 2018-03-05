@@ -1,0 +1,135 @@
+#content {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+#content .main-content {
+	background: #fff;
+}
+
+#accountBox {
+	line-height: 18px;
+	display: none;
+}
+
+#content .article-content {
+	width: 100%;
+}
+
+#content .article-nav {
+	border-bottom: 1px solid #eee;
+	height: 40px;
+	padding-bottom: 10px;
+	font-size: 14px;
+}
+
+#content .article-nav a {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 0 2px;
+	color: #000;
+}
+
+#content .article-nav a:hover {
+	color: #00AAE2;
+}
+
+#content .article-nav .current {
+	color: #999;
+}
+
+#content .article-title {
+    border-bottom: 1px solid #eee;
+}
+
+#content .article-title h1 {
+    font-size: 16px;
+    color: #555555;
+}
+
+#content .article-title .classify {
+	margin: 10px 0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+}
+
+#content .article-title .classify-tag {
+    color: #FFFFFF;
+	padding: 3px 10px;
+	border-radius: 10px;
+	border: 1px solid #eeeeee;
+}
+
+#content .article-title .type1 {
+    background: #CD5D44;
+}
+
+#content .article-title .type1:hover {
+    background: #cd3333;
+}
+
+#content .article-title .type2 {
+	background: #666;
+}
+
+#content .article-title .type2:hover {
+    background: #222;
+}
+
+#content .article-title .type3 {
+	background: #ff7f24;
+}
+
+#content .article-title .type3:hover {
+    background: #FF6D1A;
+}
+
+#content .article-title .type4 {
+	background: #63b8ff;
+}
+
+#content .article-title .type4:hover {
+    background: #4096ff;
+}
+
+#content .article-title .type5 {
+	background: #99547e;
+}
+
+#content .article-title .type5:hover {
+    background: #824599;
+}
+
+#content .article-title .classify-tag:hover {
+	cursor: pointer;
+}
+
+#content .article-content .article-info {
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	float: right;
+	margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+#content .article-info .tag-item {
+	padding: 10px;
+	float: left;
+}
+
+#content .article-info .info-tags a {
+	color: #93999D;
+}
+
+#content .article-content .content {
+	padding: 20px 0;
+}
+
+
+#content .content img {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+}
