@@ -216,9 +216,14 @@ span {
         margin-left: 10px;
     }
 
+    #content .blog-img img {
+        padding: 10px;
+    }
+
 
     #content .main-content {
-        width: 1150px;
+        width: 950px;
+        margin: 0 auto;
     }
 
     #content .tags {
@@ -297,8 +302,13 @@ span {
         margin-left: 10px;
     }
 
+    #content .blog-img img {
+        padding: 10px;
+    }
+
     #content .main-content {
-        width: 950px;
+        width: 750px;
+        margin: 0 auto;
     }
 
     #footer {
@@ -401,6 +411,10 @@ span {
         float: left;
         margin-left: 0;
         margin-right: 10px;
+    }
+
+    #content .blog-img img {
+        padding: 10px 0;
     }
 
     #content .tags {
