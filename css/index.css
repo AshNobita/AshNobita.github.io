@@ -31,15 +31,6 @@
     line-height: 12px;
 }
 
-#content .blog-info-item {
-    padding: 10px;
-}
-
-#content .blog-info li {
-    float: left;
-    margin-left: 10px;
-}
-
 #content .blog-context {
     width: 100%;
 }

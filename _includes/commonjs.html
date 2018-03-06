@@ -1,0 +1,42 @@
+<script>
+    $(function($) {
+        $(document).scroll(function() {
+            var distanceTop = $(document).scrollTop();
+            if(distanceTop >= 800) {
+                $("#return-top").fadeIn();
+            } else {
+                $("#return-top").fadeOut();
+            }
+        });
+        $("#return-top").click(function() {
+            $("html, body").animate({
+                scrollTop: $($(this).attr("href")).offset().top - 250 + "px"
+            }, 500);
+            return false;
+        });
+
+        // 移动端菜单
+        $("#header .mobile-nav-btn").toggle(
+            function () {
+                $("#header .mobile-nav ul").slideDown(300);
+                $("#header .mobile-nav").addClass("active");
+            },
+            function () {
+                $("#header .mobile-nav ul").slideUp(300);
+                $("#header .mobile-nav").removeClass("active");
+            }
+        );
+
+        // 百度统计
+        {% if site.baidu_tongji_id %}
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        {% endif %}
+
+    });
+</script>

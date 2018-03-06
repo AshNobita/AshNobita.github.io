@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ site.base }}/css/post.css"/>
     <link rel="stylesheet" href="{{ site.base }}/css/syntax.css"/>
     <script type="text/javascript" src="{{ site.base }}/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="{{ site.base }}/js/common.js"></script>
     <script>
         var fixTitle = function () {
             var content_top = $(".article-title").offset().top;
@@ -38,10 +37,16 @@
                 }
             }
         }
-        $(document).scroll(function() {
-            fixTitle();
-        });
+
+        $(function($) {
+            if ($("#header .mobile-nav").css("display") == "none") {
+                $(document).scroll(function () {
+                    fixTitle();
+                });
+            }
+        })
     </script>
+    {% include commonjs.html %}
 </head>
 
 <body>
@@ -70,7 +75,6 @@
                     <div class="article-info">
                         <ul class="info-tags clearfix">
                             <li class="tag-item"><a href="{{ site.githuburl }}"><i class="fas fa-user-circle"></i><span>{{ page.author }}</span></a></li>
-                            <li class="tag-item"><a href="javascript::"><i class="fas fa-eye"></i><span>100</span></a></li>
                             <li class="tag-item"><a href="javascript::"><i class="far fa-calendar-alt"></i><span>{{ page.date | date: "%F"}}</span></a></li>
                         </ul>
                     </div>
