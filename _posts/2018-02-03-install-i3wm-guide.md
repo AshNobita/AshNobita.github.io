@@ -66,7 +66,6 @@ exec i3 -V >> ~/.config/i3/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
 yaourt -S polybar-git
 ```
 注意：在通过yaourt安装过程中，先查看构建包，结构如下(根据需要装上必要的依赖，建议都装上,要使用mpd模块的话，不仅要装上libmpdlient还要装上mpd再构建polybar):
-
 ![2018-02-03-003608_940x1012_scrot.png](http://upload-images.jianshu.io/upload_images/6948320-f1e73bc059f71723.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 9. 从我的仓库中拷贝我的配置文件到home目录对应的配置目录
